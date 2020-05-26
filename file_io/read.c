@@ -10,8 +10,12 @@
 						, __LINE__, strerror(errno)); \
 						exit(-1);-1;}) : __val); })
 
-#define BUF_SIZE 20
-char buf[BUF_SIZE];
+struct buf {
+	char first;
+	char second[10];
+	char third;
+	int num;
+};
 
 int main()
 {
@@ -19,11 +23,11 @@ int main()
 
 	int fd = open("in", O_RDONLY);
 
-	while(1)
-	{
-		numRead = DETECT_ERR(read(fd, buf, BUF_SIZE));
-		if(numRead > 0)
-			printf("%ld \n", write(STDOUT_FILENO, buf, numRead));
-		else break;
-	}
+	struct buf myBuf;
+
+	printf("%ld\n", sizeof(struct buf));
+
+	numRead = DETECT_ERR(read(fd, &myBuf, sizeof(struct buf)));
+	
+	printf("%ld, %c, %s, %c, %d\n", numRead, myBuf.first, myBuf.second, myBuf.third, myBuf.num); 
 }
