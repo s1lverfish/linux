@@ -41,7 +41,6 @@ int main(int argc, char **argv)
 		case 'R':
 		
 		len = DETECT_ERR(atoi(&argv[i][1]));
-		printf("%ld\n", len);	
 		buf = malloc(len+1);
 		if(buf == NULL) 
 		{
@@ -49,7 +48,6 @@ int main(int argc, char **argv)
 			exit(-1);
 		}
 		numRead = DETECT_ERR(read(fd, buf, len));
-		printf("%ld\n", numRead);
 		if(numRead == 0)
 		{
 			printf("%s : <end-of-file>\n", argv[i]);
