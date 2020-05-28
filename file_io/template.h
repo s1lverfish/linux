@@ -1,4 +1,3 @@
-
 #ifndef TEMPLATE_H
 #define TEMPLATE_H
 #include <sys/types.h>
@@ -18,5 +17,6 @@
 						exit(-1);-1;}) : __val); })
 
 void print(const char* str);
+
 
 #endif
