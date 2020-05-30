@@ -1,0 +1,2 @@
+To make the mk function work you need to configure and recompile the function in templates/ directory.
+Add mk path to your PATH environment variable: export PATH="path/to/directory/templates:$PATH"
