@@ -9,7 +9,12 @@ char buf[BUF_SZ];
 
 int main(int argc, char **argv)
 {
-	int n = sprintf(buf, "gcc %s ~/cc/templates/template.c ~/cc/templates/template.h -Wall -o %s", argv[1], argv[2]);
+	if(argc != 3)
+	{
+		printf("Wrong number of args\n Format: file.cpp outfile\n");
+		exit(0);
+	}
+	int n = sprintf(buf, "cc %s ~/cc/templates/template.c ~/cc/templates/template.h -Wall -o %s", argv[1], argv[2]);
 
 	system(buf);
 	exit(1);
